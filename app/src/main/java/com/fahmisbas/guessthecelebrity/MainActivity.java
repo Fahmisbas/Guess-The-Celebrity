@@ -32,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> celebNames = new ArrayList<String>();
     ArrayList<String> bitmapURLs = new ArrayList<String>();
     String[] answer = new String[4];
-    int chosenCeleb,correctAnswerPos;
+    int chosenCeleb, correctAnswerPos;
 
 
     public void chooseAnswer(View view) {
-        if (view.getTag().toString().equals(String.valueOf(correctAnswerPos))){
+        if (view.getTag().toString().equals(String.valueOf(correctAnswerPos))) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
 
-        }else {
+        } else {
             Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
         }
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             html = getHtml.execute("http://www.posh24.se/kandisar").get();
-            regexFilter();
+            filter();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,24 +71,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void regexFilter() {
-        try {
-            Pattern p = Pattern.compile("alt=\"(.*?)\"");
-            Matcher m = p.matcher(html);
+    private void filter() {
+        Pattern p = Pattern.compile("alt=\"(.*?)\"");
+        Matcher m = p.matcher(html);
 
-            while (m.find()) {
-                celebNames.add(m.group(1));
-            }
+        while (m.find()) {
+            celebNames.add(m.group(1));
+        }
 
-            p = Pattern.compile("img src=\"(.*?)\"");
-            m = p.matcher(html);
+        p = Pattern.compile("img src=\"(.*?)\"");
+        m = p.matcher(html);
 
-            while (m.find()) {
-                bitmapURLs.add(m.group(1));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (m.find()) {
+            bitmapURLs.add(m.group(1));
         }
     }
 
@@ -121,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
             Log.i("names", Arrays.toString(answer));
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
