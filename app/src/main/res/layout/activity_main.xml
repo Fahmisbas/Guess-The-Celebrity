@@ -12,32 +12,39 @@
         android:layout_height="300dp"/>
 
     <Button
+        android:tag="0"
         android:id="@+id/btn_0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/img_celeb"
-        android:layout_margin="10dp"
-        />
+        android:onClick="chooseAnswer"
+        android:layout_margin="10dp" />
 
     <Button
+        android:tag="1"
         android:id="@+id/btn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_0"
+        android:onClick="chooseAnswer"
         android:layout_margin="10dp"/>
 
     <Button
+        android:tag="2"
         android:id="@+id/btn_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_1"
+        android:onClick="chooseAnswer"
         android:layout_margin="10dp"/>
 
     <Button
+        android:tag="3"
         android:id="@+id/btn_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_2"
+        android:onClick="chooseAnswer"
         android:layout_margin="10dp"/>
 
 </RelativeLayout>
